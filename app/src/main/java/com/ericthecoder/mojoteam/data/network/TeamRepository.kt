@@ -34,6 +34,21 @@ class TeamRepository(context: Context) {
         convertFromOfflineTeamMembers(teamDao.getTeamMembers())
     }
 
+    suspend fun getTeamMembersOffline() = convertFromOfflineTeamMembers(teamDao.getTeamMembers())
+
+    suspend fun insertTeamMember(teamMember: TeamMember) = teamDao.insert(
+        convertSingleTeamMember(teamMember)
+    )
+
+    private fun convertSingleTeamMember(teamMember: TeamMember) = teamMember.let {
+        OfflineTeamMember(
+            it.name,
+            it.position,
+            it.platform,
+            it.pic
+        )
+    }
+
     private fun convertFromOfflineTeamMembers(offlineTeamMembers: List<OfflineTeamMember>) =
         offlineTeamMembers.map {
             TeamMember(

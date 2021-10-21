@@ -1,9 +1,12 @@
 package com.ericthecoder.mojoteam.ui.main
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.ericthecoder.mojoteam.R
 import com.ericthecoder.mojoteam.entities.TeamMember
+import com.ericthecoder.mojoteam.ui.newmember.NewMemberActivity
+import com.ericthecoder.mojoteam.ui.newmember.NewMemberViewModel
 import com.ericthecoder.mojoteam.ui.view.TeamMemberView
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -17,6 +20,13 @@ class MainActivity : AppCompatActivity() {
 
         viewModel = MainViewModel(this)
         observeTeamMembers()
+
+        fab.setOnClickListener { startActivity(Intent(this, NewMemberActivity::class.java)) }
+    }
+
+    override fun onResume() {
+        super.onResume()
+        viewModel.getTeamMembersOffline()
     }
 
     // TODO: Implement a more performant way of resetting the team list

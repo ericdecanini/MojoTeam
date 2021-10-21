@@ -25,4 +25,9 @@ class MainViewModel(context: Context) : ViewModel() {
         val teamMembers = teamRepository.getTeamMembers()
         teamMembersEmitter.value = teamMembers
     }
+
+    fun getTeamMembersOffline() = viewModelScope.launch {
+        val teamMembers = teamRepository.getTeamMembersOffline()
+        teamMembersEmitter.value = teamMembers
+    }
 }
