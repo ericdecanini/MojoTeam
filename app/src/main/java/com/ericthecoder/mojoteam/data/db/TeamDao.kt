@@ -18,4 +18,7 @@ interface TeamDao {
 
     @Delete
     suspend fun delete(teamMember: OfflineTeamMember)
+
+    @Query("DELETE FROM $TEAM_MEMBERS_TABLE_NAME")
+    suspend fun deleteAll()
 }

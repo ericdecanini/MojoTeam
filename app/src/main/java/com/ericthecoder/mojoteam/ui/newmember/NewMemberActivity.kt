@@ -29,9 +29,6 @@ class NewMemberActivity : AppCompatActivity() {
         )
 
         viewModel.insertTeamMember(teamMember)
-
-        val intent = Intent(this, MainActivity::class.java)
-        startActivity(intent)
         finish()
     }
 }

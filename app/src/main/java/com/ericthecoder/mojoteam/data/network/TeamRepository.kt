@@ -28,6 +28,7 @@ class TeamRepository(context: Context) {
 
     suspend fun getTeamMembers() = try {
         teamApi.getTeamMembers().also {
+            teamDao.deleteAll()
             teamDao.insertAll(convertToOfflineTeamMembers(it))
         }
     } catch (e: UnknownHostException) {
