@@ -1,4 +1,4 @@
-package com.ericthecoder.mojoteam.data
+package com.ericthecoder.mojoteam.data.network
 
 import com.ericthecoder.mojoteam.entities.TeamMember
 import retrofit2.http.GET
