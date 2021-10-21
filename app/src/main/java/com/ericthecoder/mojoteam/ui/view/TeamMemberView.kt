@@ -13,10 +13,10 @@ import kotlinx.android.synthetic.main.list_item_team_member.view.*
 
 class TeamMemberView(
     context: Context,
-    attrs: AttributeSet
+    attrs: AttributeSet? = null,
 ) : ConstraintLayout(context, attrs) {
 
-    private var view = inflate(context, R.layout.list_item_team_member, this)
+    private var view = inflate(context, R.layout.list_item_team_member, null)
 
     init {
         addView(view)
@@ -26,6 +26,7 @@ class TeamMemberView(
         bind(data)
     }
 
+    // TODO: Look at grey and white profile pics
     private fun bind(teamMember: TeamMember) {
         view.name.text = teamMember.name
         view.position.text = teamMember.position
