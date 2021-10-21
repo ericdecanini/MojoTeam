@@ -16,8 +16,8 @@ interface TeamDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertAll(teamMembers: List<OfflineTeamMember>)
 
-    @Delete
-    suspend fun delete(teamMember: OfflineTeamMember)
+    @Query("DELETE FROM $TEAM_MEMBERS_TABLE_NAME WHERE name = :name AND position = :position")
+    suspend fun delete(name: String, position: String)
 
     @Query("DELETE FROM $TEAM_MEMBERS_TABLE_NAME")
     suspend fun deleteAll()

@@ -30,4 +30,9 @@ class MainViewModel(context: Context) : ViewModel() {
         val teamMembers = teamRepository.getTeamMembersOffline()
         teamMembersEmitter.value = teamMembers
     }
+
+    fun deleteTeamMember(teamMember: TeamMember) = viewModelScope.launch {
+        val newTeamMembers = teamRepository.deleteTeamMember(teamMember)
+        teamMembersEmitter.value = newTeamMembers
+    }
 }

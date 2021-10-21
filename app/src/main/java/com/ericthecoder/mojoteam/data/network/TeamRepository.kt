@@ -41,6 +41,15 @@ class TeamRepository(context: Context) {
         convertSingleTeamMember(teamMember)
     )
 
+    suspend fun deleteTeamMember(teamMember: TeamMember): List<TeamMember> {
+        teamDao.delete(
+            teamMember.name,
+            teamMember.position
+        )
+
+        return getTeamMembersOffline()
+    }
+
     private fun convertSingleTeamMember(teamMember: TeamMember) = teamMember.let {
         OfflineTeamMember(
             it.name,

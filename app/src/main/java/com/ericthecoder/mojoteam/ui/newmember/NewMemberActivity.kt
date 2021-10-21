@@ -24,7 +24,7 @@ class NewMemberActivity : AppCompatActivity() {
         val teamMember = TeamMember(
             name.text.toString(),
             position.text.toString(),
-            location.text.toString(),
+            platform.text.toString(),
             profile_pic.text.toString()
         )
 

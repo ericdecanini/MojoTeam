@@ -44,8 +44,18 @@
         android:layout_marginStart="16dp"
         app:layout_constraintStart_toEndOf="@id/profile_pic"
         app:layout_constraintTop_toBottomOf="@id/position"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/delete_button"
         tools:text="idk lmao"/>
+
+    <ImageButton
+        android:id="@+id/delete_button"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:layout_marginStart="24dp"
+        android:src="@drawable/ic_baseline_delete_24"
+        app:layout_constraintTop_toBottomOf="@id/platform"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@id/profile_pic"/>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

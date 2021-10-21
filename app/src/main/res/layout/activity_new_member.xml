@@ -23,10 +23,10 @@
         android:inputType="text"/>
 
     <EditText
-        android:id="@+id/location"
+        android:id="@+id/platform"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Location"
+        android:hint="Platform"
         android:inputType="text"/>
 
     <EditText

@@ -2,6 +2,7 @@ package com.ericthecoder.mojoteam.ui.main
 
 import android.content.Intent
 import android.os.Bundle
+import android.widget.LinearLayout
 import androidx.appcompat.app.AppCompatActivity
 import com.ericthecoder.mojoteam.R
 import com.ericthecoder.mojoteam.entities.TeamMember
@@ -9,6 +10,7 @@ import com.ericthecoder.mojoteam.ui.newmember.NewMemberActivity
 import com.ericthecoder.mojoteam.ui.newmember.NewMemberViewModel
 import com.ericthecoder.mojoteam.ui.view.TeamMemberView
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.list_item_team_member.view.*
 
 class MainActivity : AppCompatActivity() {
 
@@ -38,6 +40,9 @@ class MainActivity : AppCompatActivity() {
     private fun drawTeamList(teamMembers: List<TeamMember>) {
         teamMembers.forEach { teamMember ->
             val teamMemberView = TeamMemberView(this).apply { setData(teamMember) }
+            teamMemberView.delete_button.setOnClickListener {
+                viewModel.deleteTeamMember(teamMember)
+            }
             team_list.addView(teamMemberView)
         }
     }
